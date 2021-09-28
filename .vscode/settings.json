@@ -1,0 +1,6 @@
+{
+  "eslint.workingDirectories": [
+    "./nest",
+    "./packages/corrections",
+  ]
+}

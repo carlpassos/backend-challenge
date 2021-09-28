@@ -1,0 +1,53 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Challenge {
+  id: ID!
+  title: String!
+  description: String!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Answer {
+  id: ID!
+  status: String!
+  grade: Float
+  challenge_id: String!
+  repository_url: String!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type Query {
+  challenges: [Challenge!]!
+  challenge(id: String!): Challenge!
+}
+
+type Mutation {
+  createChallenge(data: CreateChallengeInput!): Challenge!
+  updateChallenge(data: UpdateChallengeInput!, id: String!): Challenge!
+  deleteChallenge(id: String!): Challenge!
+  answerChallenge(data: answerChallengeInput!): Answer!
+}
+
+input CreateChallengeInput {
+  title: String!
+  description: String!
+}
+
+input UpdateChallengeInput {
+  title: String
+  description: String
+}
+
+input answerChallengeInput {
+  challengeId: String!
+  repositoryUrl: String!
+}
